@@ -1,4 +1,4 @@
-package learn.sharding.jdbc.example.model.vo;
+package learn.sharding.jdbc.example.model.entity;
 
 import lombok.Data;
 

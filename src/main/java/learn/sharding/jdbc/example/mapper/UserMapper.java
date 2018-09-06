@@ -1,7 +1,7 @@
 package learn.sharding.jdbc.example.mapper;
 
 import learn.sharding.jdbc.example.model.dto.UserFacade;
-import learn.sharding.jdbc.example.model.vo.User;
+import learn.sharding.jdbc.example.model.entity.User;
 
 import java.util.List;
 

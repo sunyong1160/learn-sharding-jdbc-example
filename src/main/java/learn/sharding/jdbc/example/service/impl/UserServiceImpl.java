@@ -3,7 +3,7 @@ package learn.sharding.jdbc.example.service.impl;
 import learn.sharding.jdbc.example.mapper.UserMapper;
 import learn.sharding.jdbc.example.model.dto.UserFacade;
 import learn.sharding.jdbc.example.service.UserService;
-import learn.sharding.jdbc.example.model.vo.User;
+import learn.sharding.jdbc.example.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

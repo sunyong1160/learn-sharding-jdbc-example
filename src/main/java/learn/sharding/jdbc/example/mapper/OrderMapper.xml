@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="learn.sharding.jdbc.example.mapper.OrderMapper">
+    <select id="getOrderListByUserId" parameterType="int" resultType="learn.sharding.jdbc.example.model.entity.Order">
+		select order_id, user_id, status from t_order where
+		user_id=#{userId, jdbcType=INTEGER}
+	</select>
+    <insert id="createOrder" parameterType="learn.sharding.jdbc.example.model.entity.Order">
+		insert into
+		t_order(user_id, order_id, status) values (#{userId, jdbcType=INTEGER}, #{orderId, jdbcType=BIGINT}, #{status, jdbcType=VARCHAR})
+	</insert>
+
+    <insert id="createOrder2" parameterType="learn.sharding.jdbc.example.model.entity.Order">
+		insert into
+		t_order(user_id, order_id, status, city) values (#{userId, jdbcType=INTEGER}, #{orderId, jdbcType=BIGINT}, #{status, jdbcType=VARCHAR}, #{city, jdbcType=VARCHAR})
+	</insert>
+</mapper>

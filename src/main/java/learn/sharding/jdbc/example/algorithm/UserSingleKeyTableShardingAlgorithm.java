@@ -9,6 +9,7 @@ import java.util.LinkedHashSet;
 
 /**
  * Created by sunyong on 2018-09-05.
+ * 分表策略
  */
 public class UserSingleKeyTableShardingAlgorithm implements SingleKeyTableShardingAlgorithm<Long> {
 

@@ -3,7 +3,7 @@ package learn.sharding.jdbc.example.controller;
 import com.alibaba.fastjson.JSONObject;
 import learn.sharding.jdbc.example.model.dto.UserFacade;
 import learn.sharding.jdbc.example.service.UserService;
-import learn.sharding.jdbc.example.model.vo.User;
+import learn.sharding.jdbc.example.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by sunyong on 2018-09-05.
+ * 分表
  */
 @RestController
 public class UserController {
