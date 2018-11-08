@@ -1,6 +1,7 @@
 package learn.sharding.jdbc.example.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import learn.sharding.jdbc.example.kafka.KafkaSender;
 import learn.sharding.jdbc.example.model.dto.UserFacade;
 import learn.sharding.jdbc.example.service.UserService;
 import learn.sharding.jdbc.example.model.entity.User;
@@ -18,14 +19,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private KafkaSender kafkaSender;
 
     @RequestMapping("/saveUser")
     public void saveUser() {
-        User user = new User();
-        user.setId(1L);
-        user.setName("zhangsan");
-        user.setCity("上海");
-        userService.save(user);
+        kafkaSender.send("1234");
+        //User user = new User();
+        //user.setId(1L);
+        //user.setName("zhangsan");
+        //user.setCity("上海");
+        //userService.save(user);
     }
 
     @GetMapping("/add")

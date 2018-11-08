@@ -1,5 +1,7 @@
 server:
   port: 8888
+
+## sharding-jdbc ##
 sharding:
   jdbc:
     driverClassName: com.mysql.jdbc.Driver
@@ -31,6 +33,26 @@ sharding:
     url1: jdbc:mysql://localhost:3306/ds_1?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
     username1: root
     password1: root
+## sharding-jdbc ##
+
+## kafka ##
+spring:
+  kafka:
+    bootstrap-servers: 192.168.226.137:9092,192.168.226.138:9092,192.168.226.139:9092
+    consumer:
+      group-id: 0
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 65536
+      buffer-memory: 524288
+
+kafka:
+  third:
+    topic:
+      self: second
 
 logging:
   level: {"root":"debug"}
