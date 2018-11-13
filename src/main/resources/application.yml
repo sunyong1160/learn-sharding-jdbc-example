@@ -38,9 +38,9 @@ sharding:
 ## kafka ##
 spring:
   kafka:
-    bootstrap-servers: 192.168.226.137:9092,192.168.226.138:9092,192.168.226.139:9092
+    bootstrap-servers: 192.168.226.137:9092,192.226.138.169:9092,192.168.226.139:9092
     consumer:
-      group-id: 0
+      group-id: ceshi
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:

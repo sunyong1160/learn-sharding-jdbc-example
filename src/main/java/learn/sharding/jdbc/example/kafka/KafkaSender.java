@@ -17,7 +17,7 @@ public class KafkaSender {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void send(String msg) {
-        kafkaTemplate.send(topic, msg);
+    public void send(String key, String msg) {
+        kafkaTemplate.send(topic, key, msg);
     }
 }

@@ -6,6 +6,7 @@ import learn.sharding.jdbc.example.model.dto.UserFacade;
 import learn.sharding.jdbc.example.service.UserService;
 import learn.sharding.jdbc.example.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,26 +23,33 @@ public class UserController {
     @Autowired
     private KafkaSender kafkaSender;
 
+    @RequestMapping("/test")
+    public void test() {
+        String message = "message_";
+        for (int i = 0; i < 10; i++) {
+            kafkaSender.send(i + "", message + i);
+        }
+    }
+
     @RequestMapping("/saveUser")
     public void saveUser() {
-        kafkaSender.send("1234");
-        //User user = new User();
-        //user.setId(1L);
-        //user.setName("zhangsan");
-        //user.setCity("上海");
-        //userService.save(user);
+        User user = new User();
+        user.setId(1L);
+        user.setName("zhangsan");
+        user.setCity("上海");
+        userService.save(user);
     }
 
     @GetMapping("/add")
     public Object add() {
-        for (long i = 0; i < 100; i++) {
-            User user = new User();
-            user.setId(i);
-            user.setCity("深圳");
-            user.setName("李四");
-            userService.add(user);
-        }
-        return "success";
+        //for (long i = 0; i < 100; i++) {
+        //    User user = new User();
+        //    user.setId(i);
+        //    user.setCity("深圳");
+        //    user.setName("李四");
+        //    userService.add(user);
+        //}
+        return "success" + 8888;
     }
 
     @PostMapping("/queryUser")
