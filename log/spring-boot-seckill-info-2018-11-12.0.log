@@ -1,0 +1,152 @@
+2018-11-12 16:23:11.113 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 10112 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-12 16:23:11.165 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-12 16:23:13.222 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 16:23:13 CST 2018]; root of context hierarchy
+2018-11-12 16:23:15.988 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$33bdb903] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 16:23:17.589 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-12 16:23:17.660 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-12 16:23:17.664 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-12 16:23:18.107 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-12 16:23:18.107 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 4885 ms
+2018-11-12 16:23:18.516 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-12 16:23:18.522 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 16:23:18.523 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 16:23:18.523 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-12 16:23:18.524 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 16:23:20.073 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-12 16:23:20.145 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-12 16:23:21.395 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 16:23:13 CST 2018]; root of context hierarchy
+2018-11-12 16:23:21.508 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}],methods=[GET]}" onto public java.util.List<learn.sharding.jdbc.example.model.entity.Order> learn.sharding.jdbc.example.controller.OrderController.getOrderListByUserId(java.lang.Integer)
+2018-11-12 16:23:21.509 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}/{orderId}],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.OrderController.createOrderRest(java.lang.Integer,java.lang.Long,java.lang.String)
+2018-11-12 16:23:21.510 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder2]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder2()
+2018-11-12 16:23:21.510 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder()
+2018-11-12 16:23:21.528 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/add],methods=[GET]}" onto public java.lang.Object learn.sharding.jdbc.example.controller.UserController.add()
+2018-11-12 16:23:21.529 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/saveUser]}" onto public void learn.sharding.jdbc.example.controller.UserController.saveUser()
+2018-11-12 16:23:21.530 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/queryUser],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.UserController.queryUser(learn.sharding.jdbc.example.model.dto.UserFacade)
+2018-11-12 16:23:21.542 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-12 16:23:21.544 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-12 16:23:21.641 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:23:21.641 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:23:21.711 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:23:22.299 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:431 - Registering beans for JMX exposure on startup
+2018-11-12 16:23:22.387 INFO  org.springframework.context.support.DefaultLifecycleProcessor Line:343 - Starting beans in phase 2147483547
+2018-11-12 16:23:22.526 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Line:165 - Initializing ExecutorService 
+2018-11-12 16:23:22.789 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:273 - partitions revoked:[]
+2018-11-12 16:23:22.881 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:201 - Tomcat started on port(s): 8888 (http)
+2018-11-12 16:23:22.892 INFO  learn.sharding.jdbc.example.Application Line:57  - Started Application in 13.079 seconds (JVM running for 13.731)
+2018-11-12 16:23:23.084 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:278 - partitions assigned:[second-2, second-0, second-1]
+2018-11-12 16:23:49.441 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-12 16:23:49.441 INFO  org.springframework.web.servlet.DispatcherServlet Line:489 - FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-12 16:23:49.479 INFO  org.springframework.web.servlet.DispatcherServlet Line:508 - FrameworkServlet 'dispatcherServlet': initialization completed in 38 ms
+2018-11-12 16:24:10.646 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>2, offset==>62098,key==>0,value==>message_0
+2018-11-12 16:24:10.647 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>2, offset==>62099,key==>2,value==>message_2
+2018-11-12 16:24:10.648 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>2, offset==>62100,key==>3,value==>message_3
+2018-11-12 16:24:10.649 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>2, offset==>62101,key==>9,value==>message_9
+2018-11-12 16:24:10.649 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>1, offset==>62074,key==>4,value==>message_4
+2018-11-12 16:24:10.649 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>1, offset==>62075,key==>6,value==>message_6
+2018-11-12 16:24:10.652 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120454,key==>1,value==>message_1
+2018-11-12 16:24:10.652 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120455,key==>5,value==>message_5
+2018-11-12 16:24:10.652 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120456,key==>7,value==>message_7
+2018-11-12 16:24:10.653 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120457,key==>8,value==>message_8
+2018-11-12 16:34:45.622 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 6600 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-12 16:34:45.624 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-12 16:34:46.225 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 16:34:46 CST 2018]; root of context hierarchy
+2018-11-12 16:34:50.087 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$44fe5309] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 16:34:51.740 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-12 16:34:51.787 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-12 16:34:51.789 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-12 16:34:52.015 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-12 16:34:52.015 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 5790 ms
+2018-11-12 16:34:52.380 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-12 16:34:52.388 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 16:34:52.389 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 16:34:52.390 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-12 16:34:52.390 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 16:34:53.091 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-12 16:34:53.121 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-12 16:34:54.187 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 16:34:46 CST 2018]; root of context hierarchy
+2018-11-12 16:34:54.305 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}/{orderId}],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.OrderController.createOrderRest(java.lang.Integer,java.lang.Long,java.lang.String)
+2018-11-12 16:34:54.308 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder()
+2018-11-12 16:34:54.309 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder2]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder2()
+2018-11-12 16:34:54.309 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}],methods=[GET]}" onto public java.util.List<learn.sharding.jdbc.example.model.entity.Order> learn.sharding.jdbc.example.controller.OrderController.getOrderListByUserId(java.lang.Integer)
+2018-11-12 16:34:54.315 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/add],methods=[GET]}" onto public java.lang.Object learn.sharding.jdbc.example.controller.UserController.add()
+2018-11-12 16:34:54.315 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/test]}" onto public void learn.sharding.jdbc.example.controller.UserController.test()
+2018-11-12 16:34:54.315 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/saveUser]}" onto public void learn.sharding.jdbc.example.controller.UserController.saveUser()
+2018-11-12 16:34:54.316 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/queryUser],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.UserController.queryUser(learn.sharding.jdbc.example.model.dto.UserFacade)
+2018-11-12 16:34:54.323 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-12 16:34:54.324 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-12 16:34:54.437 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:34:54.437 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:34:54.579 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 16:34:55.143 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:431 - Registering beans for JMX exposure on startup
+2018-11-12 16:34:55.199 INFO  org.springframework.context.support.DefaultLifecycleProcessor Line:343 - Starting beans in phase 2147483547
+2018-11-12 16:34:55.333 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Line:165 - Initializing ExecutorService 
+2018-11-12 16:34:55.476 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:201 - Tomcat started on port(s): 8888 (http)
+2018-11-12 16:34:55.481 INFO  learn.sharding.jdbc.example.Application Line:57  - Started Application in 10.843 seconds (JVM running for 11.436)
+2018-11-12 16:34:55.556 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:273 - partitions revoked:[]
+2018-11-12 16:34:55.792 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:278 - partitions assigned:[second-2, second-0, second-1]
+2018-11-12 16:35:29.595 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-12 16:35:29.596 INFO  org.springframework.web.servlet.DispatcherServlet Line:489 - FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-12 16:35:29.639 INFO  org.springframework.web.servlet.DispatcherServlet Line:508 - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+2018-11-12 17:12:14.302 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 11028 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-12 17:12:14.305 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-12 17:12:15.040 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 17:12:15 CST 2018]; root of context hierarchy
+2018-11-12 17:12:18.442 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$3430cf46] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 17:12:20.139 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-12 17:12:20.200 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-12 17:12:20.201 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-12 17:12:20.479 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-12 17:12:20.480 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 5439 ms
+2018-11-12 17:12:20.911 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-12 17:12:20.917 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 17:12:20.919 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 17:12:20.919 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-12 17:12:20.920 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 17:12:21.961 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-12 17:12:21.996 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-12 17:12:22.467 INFO  org.apache.catalina.core.StandardService Line:179 - Stopping service [Tomcat]
+2018-11-12 17:17:14.061 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 8260 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-12 17:17:14.064 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-12 17:17:14.500 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 17:17:14 CST 2018]; root of context hierarchy
+2018-11-12 17:17:18.112 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$96c0c70a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-12 17:17:19.948 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-12 17:17:19.996 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-12 17:17:19.997 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-12 17:17:20.446 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-12 17:17:20.446 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 5947 ms
+2018-11-12 17:17:20.869 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-12 17:17:20.877 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 17:17:20.878 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 17:17:20.879 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-12 17:17:20.880 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 17:17:21.924 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-12 17:17:21.962 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-12 17:17:23.385 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter Line:534 - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1efe439d: startup date [Mon Nov 12 17:17:14 CST 2018]; root of context hierarchy
+2018-11-12 17:17:23.500 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}/{orderId}],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.OrderController.createOrderRest(java.lang.Integer,java.lang.Long,java.lang.String)
+2018-11-12 17:17:23.501 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder()
+2018-11-12 17:17:23.502 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/createOrder2]}" onto public void learn.sharding.jdbc.example.controller.OrderController.createOrder2()
+2018-11-12 17:17:23.502 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/order/{userId}],methods=[GET]}" onto public java.util.List<learn.sharding.jdbc.example.model.entity.Order> learn.sharding.jdbc.example.controller.OrderController.getOrderListByUserId(java.lang.Integer)
+2018-11-12 17:17:23.507 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/add],methods=[GET]}" onto public java.lang.Object learn.sharding.jdbc.example.controller.UserController.add()
+2018-11-12 17:17:23.508 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/test]}" onto public void learn.sharding.jdbc.example.controller.UserController.test()
+2018-11-12 17:17:23.508 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/saveUser]}" onto public void learn.sharding.jdbc.example.controller.UserController.saveUser()
+2018-11-12 17:17:23.509 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/queryUser],methods=[POST]}" onto public java.lang.String learn.sharding.jdbc.example.controller.UserController.queryUser(learn.sharding.jdbc.example.model.dto.UserFacade)
+2018-11-12 17:17:23.514 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-12 17:17:23.515 INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping Line:543 - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-12 17:17:23.604 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 17:17:23.604 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 17:17:23.679 INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping Line:362 - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-12 17:17:24.823 INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter Line:431 - Registering beans for JMX exposure on startup
+2018-11-12 17:17:24.869 INFO  org.springframework.context.support.DefaultLifecycleProcessor Line:343 - Starting beans in phase 2147483547
+2018-11-12 17:17:25.032 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Line:165 - Initializing ExecutorService 
+2018-11-12 17:17:25.190 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:201 - Tomcat started on port(s): 8888 (http)
+2018-11-12 17:17:25.195 INFO  learn.sharding.jdbc.example.Application Line:57  - Started Application in 12.365 seconds (JVM running for 12.965)
+2018-11-12 17:17:25.413 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:273 - partitions revoked:[]
+2018-11-12 17:17:27.432 INFO  org.springframework.kafka.listener.KafkaMessageListenerContainer Line:278 - partitions assigned:[second-0, second-1]
+2018-11-12 17:17:51.830 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-12 17:17:51.830 INFO  org.springframework.web.servlet.DispatcherServlet Line:489 - FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-12 17:17:51.884 INFO  org.springframework.web.servlet.DispatcherServlet Line:508 - FrameworkServlet 'dispatcherServlet': initialization completed in 54 ms
+2018-11-12 17:54:35.694 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120458,key==>1,value==>message_1
+2018-11-12 17:54:35.694 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120459,key==>5,value==>message_5
+2018-11-12 17:54:35.695 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120460,key==>7,value==>message_7
+2018-11-12 17:54:35.695 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>0, offset==>120461,key==>8,value==>message_8
+2018-11-12 17:54:35.696 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>1, offset==>62076,key==>4,value==>message_4
+2018-11-12 17:54:35.696 INFO  learn.sharding.jdbc.example.kafka.KafkaConsumer Line:17  - get message from kafka:topic==>second,partition==>1, offset==>62077,key==>6,value==>message_6

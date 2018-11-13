@@ -48,7 +48,18 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       batch-size: 65536
       buffer-memory: 524288
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 30000
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
 
+
+##topic
 kafka:
   third:
     topic:

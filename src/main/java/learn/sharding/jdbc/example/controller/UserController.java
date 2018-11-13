@@ -1,12 +1,12 @@
 package learn.sharding.jdbc.example.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import learn.sharding.jdbc.example.kafka.KafkaSender;
+import learn.sharding.jdbc.example.queue.kafka.KafkaSender;
 import learn.sharding.jdbc.example.model.dto.UserFacade;
+import learn.sharding.jdbc.example.queue.redis.RedisSender;
 import learn.sharding.jdbc.example.service.UserService;
 import learn.sharding.jdbc.example.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,13 +22,24 @@ public class UserController {
     private UserService userService;
     @Autowired
     private KafkaSender kafkaSender;
+    @Autowired
+    private RedisSender redisSender;
 
-    @RequestMapping("/test")
-    public void test() {
+    @RequestMapping("/kafkaSender")
+    public void kafkaSender() {
         String message = "message_";
         for (int i = 0; i < 10; i++) {
             kafkaSender.send(i + "", message + i);
         }
+    }
+
+    @RequestMapping("/redisSender")
+    public String redisSender() {
+        String message = "message_";
+        for (int i = 0; i < 10; i++) {
+            redisSender.sendChannelMess("test", message + i);
+        }
+        return "success";
     }
 
     @RequestMapping("/saveUser")

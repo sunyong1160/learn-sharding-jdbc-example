@@ -1,4 +1,4 @@
-package learn.sharding.jdbc.example.kafka;
+package learn.sharding.jdbc.example.queue.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
