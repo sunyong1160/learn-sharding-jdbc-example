@@ -57,8 +57,15 @@ spring:
       max-wait: -1
       max-idle: 8
       min-idle: 0
-
-
+  thymeleaf:
+    #配置前缀
+    prefix: classpath:/template/
+    #配置后缀
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+  #是否开启缓存
+    cache: false
 ##topic
 kafka:
   third:

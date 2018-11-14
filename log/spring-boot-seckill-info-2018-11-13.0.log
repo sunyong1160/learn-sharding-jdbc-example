@@ -1,0 +1,36 @@
+2018-11-13 17:15:51.624 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 11604 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-13 17:15:51.632 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-13 17:15:53.429 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4dd02341: startup date [Tue Nov 13 17:15:53 CST 2018]; root of context hierarchy
+2018-11-13 17:15:59.112 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate Line:170 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-13 17:16:00.220 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$d49d7cda] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-13 17:16:01.458 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-13 17:16:01.653 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-13 17:16:01.709 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-13 17:16:02.202 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-13 17:16:02.203 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 8774 ms
+2018-11-13 17:16:02.764 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-13 17:16:02.772 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-13 17:16:02.773 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-13 17:16:02.773 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-13 17:16:02.773 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-13 17:16:03.926 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-13 17:16:04.017 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-13 17:16:05.080 INFO  org.apache.catalina.core.StandardService Line:179 - Stopping service [Tomcat]
+2018-11-13 17:20:24.801 INFO  learn.sharding.jdbc.example.Application Line:48  - Starting Application on B-0252-PC with PID 11336 (D:\spring_cloud_workspace\learn-sharding-jdbc-example\target\classes started by B-0252 in D:\spring_cloud_workspace\learn-sharding-jdbc-example)
+2018-11-13 17:20:24.804 INFO  learn.sharding.jdbc.example.Application Line:593 - No active profile set, falling back to default profiles: default
+2018-11-13 17:20:25.144 INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext Line:583 - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@141e5bef: startup date [Tue Nov 13 17:20:25 CST 2018]; root of context hierarchy
+2018-11-13 17:20:28.570 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate Line:170 - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-13 17:20:30.550 INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Line:325 - Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$8d0621e7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-13 17:20:32.133 INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer Line:89  - Tomcat initialized with port(s): 8888 (http)
+2018-11-13 17:20:32.209 INFO  org.apache.catalina.core.StandardService Line:179 - Starting service [Tomcat]
+2018-11-13 17:20:32.210 INFO  org.apache.catalina.core.StandardEngine Line:179 - Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-11-13 17:20:32.522 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Line:179 - Initializing Spring embedded WebApplicationContext
+2018-11-13 17:20:32.522 INFO  org.springframework.web.context.ContextLoader Line:276 - Root WebApplicationContext: initialization completed in 7378 ms
+2018-11-13 17:20:32.934 INFO  org.springframework.boot.web.servlet.ServletRegistrationBean Line:190 - Mapping servlet: 'dispatcherServlet' to [/]
+2018-11-13 17:20:32.942 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-13 17:20:32.944 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-13 17:20:32.945 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-13 17:20:32.945 INFO  org.springframework.boot.web.servlet.FilterRegistrationBean Line:258 - Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-13 17:20:34.103 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-1} inited
+2018-11-13 17:20:34.144 INFO  com.alibaba.druid.pool.DruidDataSource Line:715 - {dataSource-2} inited
+2018-11-13 17:20:34.902 INFO  org.apache.catalina.core.StandardService Line:179 - Stopping service [Tomcat]
