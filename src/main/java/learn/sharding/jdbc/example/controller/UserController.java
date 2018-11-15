@@ -7,6 +7,7 @@ import learn.sharding.jdbc.example.queue.redis.RedisSender;
 import learn.sharding.jdbc.example.service.UserService;
 import learn.sharding.jdbc.example.model.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class UserController {
     private KafkaSender kafkaSender;
     @Autowired
     private RedisSender redisSender;
+    @Value("${redis.channel}")
+    private String REDISCHANNEL;
 
     @RequestMapping("/kafkaSender")
     public void kafkaSender() {
@@ -37,7 +40,7 @@ public class UserController {
     public String redisSender() {
         String message = "message_";
         for (int i = 0; i < 10; i++) {
-            redisSender.sendChannelMess("test", message + i);
+            redisSender.sendChannelMess(REDISCHANNEL, message + i);
         }
         return "success";
     }

@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Hello world!
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @MapperScan("learn.sharding.jdbc.example.mapper")
 @ComponentScan("learn.sharding.jdbc.example")
+@EnableScheduling
 //@ImportResource(locations = {"classpath:sharding-jdbc.xml"}) // xml形式
 public class Application {
     public static void main(String[] args) {

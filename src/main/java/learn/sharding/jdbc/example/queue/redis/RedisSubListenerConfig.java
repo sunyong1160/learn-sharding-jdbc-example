@@ -1,5 +1,6 @@
 package learn.sharding.jdbc.example.queue.redis;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -14,6 +15,9 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 @Configuration
 public class RedisSubListenerConfig {
 
+    @Value("${redis.channel}")
+    private String REDISCHANNEL;
+
     /**
      * 初始化监听器
      *
@@ -24,10 +28,9 @@ public class RedisSubListenerConfig {
     @Bean
     public RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory, MessageListenerAdapter
             listenerAdapter) {
-        System.out.println(11111+"$$$$$$$$$$$$$");
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        container.addMessageListener(listenerAdapter, new PatternTopic("test"));
+        container.addMessageListener(listenerAdapter, new PatternTopic(REDISCHANNEL));
         return container;
     }
 
@@ -36,10 +39,10 @@ public class RedisSubListenerConfig {
      *
      * @param redisConsumer
      * @return 宋顺 2018-11-13 17:48:57
-     @EnableApolloConfig可以传入多个namespace     */
+     * @EnableApolloConfig可以传入多个namespace
+     */
     @Bean
     public MessageListenerAdapter listenerAdapter(RedisConsumer redisConsumer) {
-        System.out.println(1234+"%%%%%%%%%%%%%%%%");
         return new MessageListenerAdapter(redisConsumer, "receiveMessage");
     }
 
@@ -51,7 +54,6 @@ public class RedisSubListenerConfig {
      */
     @Bean
     public StringRedisTemplate redisTemplate(RedisConnectionFactory connectionFactory) {
-        System.out.println(12345+"@@@@@@@@@@@@@");
         return new StringRedisTemplate(connectionFactory);
     }
 

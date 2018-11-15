@@ -71,6 +71,8 @@ kafka:
   third:
     topic:
       self: second
+redis:
+  channel: test
 
 logging:
   level: {"root":"debug"}

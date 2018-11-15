@@ -17,6 +17,10 @@ public class SocketServer {
     private static Map<String, Session> sessionPool = new HashMap<String, Session>();
     private static Map<String, String> sessionIds = new HashMap<String, String>();
 
+    public static Map<String, Session> getSessionPool() {
+        return sessionPool;
+    }
+
     /**
      * 用户连接时触发
      *
