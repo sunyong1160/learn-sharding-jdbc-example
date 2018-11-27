@@ -1,423 +1,196 @@
 package learn.sharding.jdbc.example.util;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.concurrent.TimeUnit;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.time.temporal.WeekFields;
+import java.util.Date;
+import java.util.Locale;
 
 /**
- * 日期util.
+ * Created on 2017/1/5 8:59
  *
- * @author zxiaofan
+ * @author ChenZhiqiang
  */
-public class DateUtil {
+public final class DateUtil {
 
-    /**
-     * 添加字段注释.
-     */
-    public static final String ENUM_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    /**
-     * 添加字段注释.
-     */
-    public static final String ENUM_FORMAT_YMD = "yyyy-MM-dd";
-    /**
-     * 添加字段注释.
-     */
-    public static final String ENUM_FORMAT_YMDS = "yyyy-MM-dd HH:mm:ss.S";
-    /**
-     * 添加字段注释.
-     */
-    public static final String ENUM_FORMAT_SLASH = "yyyy/MM/dd HH:mm:ss";
-    /**
-     * 添加字段注释.
-     */
-    public static final String ENUM_FORMAT_YMDS_SLASH = "yyyy/MM/dd HH:mm:ss.S";
-    /**
-     * 添加字段注释.
-     */
-    public static final String LEVEL_DAY = "day"; // 粒度级别
-    /**
-     * 添加字段注释.
-     */
-    public static final String LEVEL_HOUR = "hour";
-    /**
-     * 添加字段注释.
-     */
-    public static final String LEVEL_MINUTE = "minute";
-    /**
-     * 添加字段注释.
-     */
-    public static final String LEVEL_SECOND = "second";
-    /**
-     * 日期特殊字符对应.
-     */
-    private static Map<String, String> mapSign = new HashMap<>();
-    /**
-     * 使用ThreadLocal保证SimpleDateFormat线程安全.
-     */
-    private static ThreadLocal<Map<String, SimpleDateFormat>> threadLocalDateFormat = new ThreadLocal<>();
+    private static final String DEFAULT_TIME_PATTERN = "HH:mm:ss";
+    private static final String DEFAULT_DATE_PATTERN = "yyyy-MM-dd";
+    private static final String DEFAULT_DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-    /**
-     * 构造函数.
-     */
-    public DateUtil() {
-        throw new RuntimeException("this is a util class,can not instance!");
+    private DateUtil() {
+        // private construct
     }
 
-    /**
-     * 初始化DateFormat标志位.
-     */
-    private static void initMapSign() {
-        if (mapSign.isEmpty()) {
-            mapSign.put("上午|下午", "a");
-            mapSign.put("星期[一二三四五六日天七]", "E");
-            mapSign.put("CST", "z");
-            mapSign.put("公元[前]?", "G");
+    public static String now() {
+        return format(LocalDateTime.now());
+    }
+
+    public static String now(String pattern) {
+        return format(LocalDateTime.now(), pattern);
+    }
+
+    public static String nowDate() {
+        return formatDate(LocalDate.now());
+    }
+
+    public static String nowDate(String pattern) {
+        return formatDate(LocalDate.now(), pattern);
+    }
+
+    public static String nowTime() {
+        return formatTime(LocalTime.now());
+    }
+
+    public static String nowTime(String pattern) {
+        return formatTime(LocalTime.now(), pattern);
+    }
+
+    public static String format(LocalDateTime dateTime) {
+        return format(dateTime, DEFAULT_DATETIME_PATTERN);
+    }
+
+    public static String format(LocalDateTime dateTime, String pattern) {
+        return dateTime.format(formatter(pattern));
+    }
+
+    public static String format(Date date, String pattern) {
+        return format(toLocalDateTime(date), pattern);
+    }
+
+    public static String formatDate(LocalDate date) {
+        return formatDate(date, DEFAULT_DATE_PATTERN);
+    }
+
+    public static String formatDate(LocalDate date, String pattern) {
+        return date.format(formatter(pattern));
+    }
+
+    public static String formatTime(LocalTime time) {
+        return formatTime(time, DEFAULT_TIME_PATTERN);
+    }
+
+    public static String formatTime(LocalTime time, String pattern) {
+        return time.format(formatter(pattern));
+    }
+
+    public static LocalDateTime parse(String text, String pattern) {
+        return LocalDateTime.parse(text, formatter(pattern));
+    }
+
+    public static LocalDate parseDate(String text, String pattern) {
+        return LocalDate.parse(text, formatter(pattern));
+    }
+
+    public static LocalTime parseTime(String text, String pattern) {
+        return LocalTime.parse(text, formatter(pattern));
+    }
+
+    public static Date parseAndToDate(String text, String pattern) {
+        return toDate(parse(text, pattern));
+    }
+
+    public static Date parseDateAndToDate(String text, String pattern) {
+        return toDate(parseDate(text, pattern));
+    }
+
+    public static Date parseTimeAndToDate(String text, String pattern) {
+        return toDate(parseTime(text, pattern));
+    }
+
+    public static LocalDateTime toLocalDateTime(Date date) {
+        return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+    }
+
+    public static LocalDate toLocalDate(Date date) {
+        return toLocalDateTime(date).toLocalDate();
+    }
+
+    public static LocalTime toLocalTime(Date date) {
+        return toLocalDateTime(date).toLocalTime();
+    }
+
+    public static Date toDate(LocalDateTime dateTime) {
+        return Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    public static Date toDate(LocalDate date) {
+        return toDate(date.atStartOfDay());
+    }
+
+    public static Date toDate(LocalTime time) {
+        return toDate(LocalDateTime.of(LocalDate.now(), time));
+    }
+
+    private static DateTimeFormatter formatter(String pattern) {
+        return DateTimeFormatter.ofPattern(pattern, Locale.CHINA);
+    }
+
+    private static String todayOfWeekDisplayName() {
+        return dayofWeekDisplayName(LocalDate.now());
+    }
+
+    private static String dayofWeekDisplayName(LocalDate date) {
+        return date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.CHINA);
+    }
+
+    public static boolean inSameWeek(LocalDate day, LocalDate other) {
+        if (day.isEqual(other)) {
+            return true;
         }
-    }
-
-    /**
-     * 常规日期格式yyyy-MM-dd HH:mm:ss.
-     *
-     * @param date date
-     * @return time
-     */
-    public static String format(Date date) {
-        return getDateFormat(ENUM_FORMAT).format(date);
-    }
-
-    /**
-     * 常规日期格式yyyy-MM-dd.
-     *
-     * @param date date
-     * @return time
-     */
-    public static String formatYMd(Date date) {
-        return getDateFormat(ENUM_FORMAT_YMD).format(date);
-    }
-
-    /**
-     * 格式化时间.
-     *
-     * @param date date
-     * @param dateFormat dateFormat
-     * @return time
-     */
-    public static String format(Date date, String dateFormat) {
-        if (null == date) {
-            return null;
-        }
-        return getDateFormat(dateFormat).format(date);
-    }
-
-    /**
-     * parse时间(yyyy-MM-dd HH:mm:ss).
-     *
-     * @param source source
-     * @return Date
-     * @throws ParseException ParseException
-     */
-    public static Date parse(String source) throws ParseException {
-        return getDateFormat(ENUM_FORMAT).parse(source);
-    }
-
-    /**
-     * parse时间(yyyy-MM-dd).
-     *
-     * @param source source
-     * @return Date
-     * @throws ParseException ParseException
-     */
-    public static Date parseYMd(String source) throws ParseException {
-        return getDateFormat(ENUM_FORMAT_YMD).parse(source);
-    }
-
-    /**
-     * 格式化时间.
-     *
-     * @param time time
-     * @param dateFormat dateFormat
-     * @return Date
-     * @throws ParseException ParseException
-     */
-    public static Date parse(String time, String dateFormat) throws ParseException {
-        if (isNullOrEmpty(time) || isNullOrEmpty(dateFormat)) {
-            return null;
-        }
-        return getDateFormat(dateFormat).parse(time);
-    }
-
-    /**
-     * 获取指定时间格式的 SimpleDateFormat.
-     *
-     * @param pattern 时间格式
-     * @return SimpleDateFormat
-     */
-    private static SimpleDateFormat getDateFormat(String pattern) {
-        Map<String, SimpleDateFormat> dateFormatMap = threadLocalDateFormat.get();
-        if (dateFormatMap == null) {
-            dateFormatMap = new HashMap<>();
-        }
-        SimpleDateFormat simpleDateFormat = dateFormatMap.get(pattern);
-        if (simpleDateFormat == null) {
-            simpleDateFormat = new SimpleDateFormat(pattern, Locale.getDefault());
-            dateFormatMap.put(pattern, simpleDateFormat);
-            threadLocalDateFormat.set(dateFormatMap);
-        }
-        return simpleDateFormat;
-    }
-
-    /**
-     * 自动解析时间格式并parse（时间格式为yyyyMMddHHmmssS，默认24小时制、前包含且必须包含yyyyMMdd）.
-     *
-     * @param time time
-     * @return Date
-     * @throws ParseException ParseException
-     */
-    public static Date parseAuto(String time) throws ParseException {
-        if (isNullOrEmpty(time) || time.length() < 8) {
-            return null;
-        }
-        initMapSign();
-        time = time.trim();
-        String formatPattern = "";
-        if (time.matches("[\\d]+")) { // 纯数字
-            String all = "yyyyMMddHHmmssSSS";
-            if (time.length() > all.length()) { // 超长截取
-                time = time.substring(0, all.length());
-            }
-            formatPattern = all.substring(0, time.length());
+        LocalDate before;
+        LocalDate after;
+        if (day.isBefore(other)) {
+            before = day;
+            after = other;
         } else {
-            char next = 'y';
-            String idNext = "yMdHmsS";
-            StringBuilder buffer = new StringBuilder();
-            for (char var : time.toCharArray()) {
-                if (String.valueOf(var).matches("[0-9]")) {
-                    buffer.append(next);
-                } else if ("T".equals(String.valueOf(var))) {
-                    buffer.append("'").append(var).append("'");
-                } else {
-                    buffer.append(var);
-                    next = idNext.charAt(Math.min(idNext.indexOf(next) + 1, idNext.length() - 1));
-                }
-            }
-            formatPattern = buffer.toString();
+            before = other;
+            after = day;
         }
-        for (Entry<String, String> entry : mapSign.entrySet()) {
-            formatPattern = formatPattern.replaceAll(entry.getKey(), entry.getValue());
-        }
-        return parse(time, formatPattern);
-    }
 
-    /**
-     * 是否为空或"".
-     *
-     * @param param param
-     * @return boolean
-     */
-    private static boolean isNullOrEmpty(String param) {
-        return null == param || "".equals(param.trim());
-    }
-
-    /**
-     * 日期增加num天.
-     *
-     * @param date date
-     * @param num 加减天数
-     * @return Date
-     */
-    public static Date addDate(Date date, int num) {
-        return addDate(date, Calendar.DATE, num);
-    }
-
-    /**
-     * 时间增加.
-     *
-     * @param date date
-     * @param calendar 加减级别Calendar
-     * @param num 加减天数
-     * @return Date
-     */
-    public static Date addDate(Date date, int calendar, int num) {
-        if (null == date || 0 == num) {
-            return date;
-        }
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(calendar, num);
-        return cal.getTime();
-    }
-
-    /**
-     * 保留日期到某一级别（天、时、分、秒...）.
-     *
-     * @param date date
-     * @param level 保留级别，null保留到day
-     * @return date
-     */
-    public static Date setDate(Date date, String level) {
-        if (null == date || null == level) {
-            return date;
-        }
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        switch (level) {
-            case LEVEL_DAY: // 保留到 Day
-                // cal.set(Calendar.HOUR, 0); // 12小时制
-                cal.set(Calendar.HOUR_OF_DAY, 0); // 24小时制
-                cal.set(Calendar.MINUTE, 0);
-                cal.set(Calendar.SECOND, 0);
-                cal.set(Calendar.MILLISECOND, 0);
+        int diff = 0;
+        switch (before.getDayOfWeek()) {
+            case MONDAY:
+                diff = 7;
                 break;
-            case LEVEL_HOUR: // 保留到 Hour
-                cal.set(Calendar.MINUTE, 0);
-                cal.set(Calendar.SECOND, 0);
-                cal.set(Calendar.MILLISECOND, 0);
+            case TUESDAY:
+                diff = 6;
                 break;
-            case LEVEL_MINUTE: // 保留到 MINUTE
-                cal.set(Calendar.SECOND, 0);
-                cal.set(Calendar.MILLISECOND, 0);
+            case WEDNESDAY:
+                diff = 5;
                 break;
-            case LEVEL_SECOND: // 保留到 SECOND
-                cal.set(Calendar.MILLISECOND, 0);
+            case THURSDAY:
+                diff = 4;
                 break;
-            default:
+            case FRIDAY:
+                diff = 3;
+                break;
+            case SATURDAY:
+                diff = 2;
+                break;
+            case SUNDAY:
+                diff = 1;
                 break;
         }
-        return cal.getTime();
+        return before.plusDays(diff).isAfter(after);
     }
 
-    /**
-     * 比较两个日期的间隔（时间差绝对值,向下取整）（day、hour、minute）.
-     *
-     * @param date1 date1
-     * @param date2 date2
-     * @param level 比较级别
-     * @return int 无对应时间间隔级别
-     */
-    public static Integer getDateInterval(Date date1, Date date2, String level) {
-        Double num = dateInterval(date1, date2, level);
-        if (null == num) {
-            return null;
-        }
-        return (int) Math.floor(num);
+    public static LocalDate firstDayOfCurrentMonth() {
+        return LocalDate.now().withDayOfMonth(1);
     }
 
-    /**
-     * 比较两个日期的间隔（时间差绝对值,向上取整）（day、hour、minute）.
-     *
-     * @param date1 date1
-     * @param date2 date2
-     * @param level 比较级别
-     * @return int 无对应时间间隔级别
-     */
-    public static Integer getDateIntervalCeil(Date date1, Date date2, String level) {
-        Double num = dateInterval(date1, date2, level);
-        if (null == num) {
-            return null;
-        }
-        return (int) Math.ceil(num);
+    public static LocalDate firstDayOfCurrentWeek() {
+        return dayOfCurrentWeek(1);
     }
 
-    /**
-     * 比较两个日期的间隔（day、hour、minute）.
-     *
-     * @param date1 date1
-     * @param date2 date2
-     * @param level 比较级别
-     * @return int 无对应时间间隔级别
-     */
-    private static Double dateInterval(Date date1, Date date2, String level) {
-        Double time = (double) (date1.getTime() - date2.getTime());
-        if (time < 0) {
-            time = time * -1;
-        }
-        Double num = null;
-        switch (level) {
-            case LEVEL_DAY: // 天
-                num = (Double) (time / TimeUnit.DAYS.toMillis(1));
-                break;
-            case LEVEL_HOUR: // 小时
-                num = (Double) (time / TimeUnit.HOURS.toMillis(1));
-                break;
-            case LEVEL_MINUTE: // 分钟
-                num = (Double) (time / TimeUnit.MINUTES.toMillis(1));
-                break;
-            case LEVEL_SECOND: // 秒
-                num = (Double) (time / TimeUnit.SECONDS.toMillis(1));
-                break;
-            default:
-                break;
-        }
-        return num;
+    public static LocalDate lastDayOfCurrentWeek() {
+        return dayOfCurrentWeek(7);
     }
 
-    /**
-     * 获取当前日期指定时间.
-     *
-     * @param date date
-     * @param time time
-     * @return date
-     * @throws ParseException ParseException
-     */
-    public static Date dateToHms(Date date, String time) throws ParseException {
-        if (null == date || isNullOrEmpty(time)) {
-            return date;
-        }
-        StringBuilder timeBuf = new StringBuilder();
-        String dateStr = formatYMd(date);
-        timeBuf.append(dateStr).append(" ");
-        time = time.trim();
-        while (!time.matches(".*\\d")) {
-            time = time.substring(0, time.length() - 1);
-        }
-        timeBuf.append(time);
-        if (time.matches("\\d{1,2}:\\d{1,2}:\\d{1,2}")) {
-            timeBuf.append(".0");
-        } else if (time.matches("\\d{1,2}:\\d{1,2}")) {
-            timeBuf.append(":00.0");
-        } else if (time.matches("\\d{1,2}")) {
-            timeBuf.append(":00:00.0");
-        }
-        return parse(timeBuf.toString(), ENUM_FORMAT_YMDS);
-    }
-
-    /**
-     * 将Date类转换为XMLGregorianCalendar.
-     *
-     * @param date date
-     * @return XMLGregorianCalendar
-     * @throws DatatypeConfigurationException DatatypeConfigurationException
-     */
-    public static XMLGregorianCalendar dateToXmlDate(Date date)
-            throws DatatypeConfigurationException {
-        XMLGregorianCalendar dateType = null;
-        if (null != date) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            DatatypeFactory dtf = DatatypeFactory.newInstance();
-            dateType = dtf.newXMLGregorianCalendar();
-            if (null != dateType) {
-                dateType.setYear(cal.get(Calendar.YEAR));
-                // 由于Calendar.MONTH取值范围为0~11,需要加1
-                dateType.setMonth(cal.get(Calendar.MONTH) + 1);
-                dateType.setDay(cal.get(Calendar.DAY_OF_MONTH));
-                dateType.setHour(cal.get(Calendar.HOUR_OF_DAY));
-                dateType.setMinute(cal.get(Calendar.MINUTE));
-                dateType.setSecond(cal.get(Calendar.SECOND));
-            }
-        }
-        return dateType;
-    }
-
-    /**
-     * 清理ThreadLocal（每次线程结束都应执行此操作）.
-     */
-    public static void clearThreadLocal() {
-        threadLocalDateFormat.remove();
+    public static LocalDate dayOfCurrentWeek(int dayOfWeek) {
+        return LocalDate.now().with(WeekFields.ISO.dayOfWeek(), dayOfWeek);
     }
 }

@@ -1,10 +1,8 @@
 package learn.sharding.jdbc.example.aspect;
 
-import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import learn.sharding.jdbc.example.annotation.Desc;
-import learn.sharding.jdbc.example.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -18,8 +16,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.Date;
 
 /**
  * Created by sunyong on 2018-11-20.
