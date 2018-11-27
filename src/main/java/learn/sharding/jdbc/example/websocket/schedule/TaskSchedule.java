@@ -24,7 +24,7 @@ public class TaskSchedule {
     @Value("${redis.channel}")
     private String REDISCHANNEL;
 
-    @Scheduled(cron = "0/5 * * * * *")
+    //@Scheduled(cron = "0/5 * * * * *")
     public void task() {
         log.info("定时任务task开始......");
         long begin = System.currentTimeMillis();

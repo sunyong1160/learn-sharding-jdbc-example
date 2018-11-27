@@ -11,7 +11,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @MapperScan("learn.sharding.jdbc.example.mapper")
-@ComponentScan("learn.sharding.jdbc.example")
 @EnableScheduling
 //@ImportResource(locations = {"classpath:sharding-jdbc.xml"}) // xml形式
 public class Application {
