@@ -51,22 +51,22 @@ public class RedissonAutoConfiguration {
      *
      * @return
      */
-    @Bean
-    @ConditionalOnProperty(name = "redisson.address")
-    public RedissonClient redissonCluster() {
-        String[] nodes = redssionProperties.getAddress().split(",");
-        //redisson版本是3.5，集群的ip前面要加上“redis://”，不然会报错，3.2版本可不加
-        for (int i = 0; i < nodes.length; i++) {
-            nodes[i] = "redis://" + nodes[i];
-        }
-        Config config = new Config();
-        ClusterServersConfig clusterServersConfig = config.useClusterServers().addNodeAddress(nodes)
-                .setScanInterval(2000);//设置集群状态扫描时间
-        if (StringUtils.isNotBlank(redssionProperties.getPassword())) {
-            clusterServersConfig.setPassword(redssionProperties.getPassword());
-        }
-        return Redisson.create(config);
-    }
+//    @Bean
+//    @ConditionalOnProperty(name = "redisson.address")
+//    public RedissonClient redissonCluster() {
+//        String[] nodes = redssionProperties.getAddress().split(",");
+//        //redisson版本是3.5，集群的ip前面要加上“redis://”，不然会报错，3.2版本可不加
+//        for (int i = 0; i < nodes.length; i++) {
+//            nodes[i] = "redis://" + nodes[i];
+//        }
+//        Config config = new Config();
+//        ClusterServersConfig clusterServersConfig = config.useClusterServers().addNodeAddress(nodes)
+//                .setScanInterval(2000);//设置集群状态扫描时间
+//        if (StringUtils.isNotBlank(redssionProperties.getPassword())) {
+//            clusterServersConfig.setPassword(redssionProperties.getPassword());
+//        }
+//        return Redisson.create(config);
+//    }
 
 
     /**
@@ -78,11 +78,11 @@ public class RedissonAutoConfiguration {
      * 该值与havingValue指定的值进行比较，如果一样则返回true，否则返回false，则该configuration不生效，为ture则生效
      */
     @Bean
-    @ConditionalOnProperty(name = "redisson.address", havingValue = "redis://127.0.0.1:6379")
+    @ConditionalOnProperty(name = "redisson.address")
     RedissonClient redissonSingle() {
         Config config = new Config();
         SingleServerConfig serverConfig = config.useSingleServer()
-                .setAddress(redssionProperties.getAddress())
+                .setAddress(redssionProperties.getAddress()) // redisson.address 前面不需要加redis://
                 .setTimeout(redssionProperties.getTimeout())
                 .setConnectionPoolSize(redssionProperties.getConnectionPoolSize())
                 .setConnectionMinimumIdleSize(redssionProperties.getConnectionMinimumIdleSize());

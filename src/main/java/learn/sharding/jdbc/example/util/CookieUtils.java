@@ -1,10 +1,11 @@
 package learn.sharding.jdbc.example.util;
 
 
-import org.apache.commons.lang.math.RandomUtils;
+//import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -77,22 +78,22 @@ public final class CookieUtils {
      * @param seconds    cookie有效秒数
      * @return
      */
-    public static int getAbTestValueFromCookie(HttpServletRequest request, HttpServletResponse response, String site,
-                                               String
-                                                       cookieName, int percent, int seconds) {
-        String abtestCookieFlag = CookieUtils.getCookieValueByName(request, cookieName);
-        int abtestFlag;
-        if (StringUtils.isNotBlank(abtestCookieFlag)) {
-            abtestFlag = NumberUtils.toInt(abtestCookieFlag);
-        } else {
-            abtestFlag = RandomUtils.nextInt(percent);
-            CookieUtils.addCookie(response, site, cookieName, String.valueOf(abtestFlag), seconds);
-        }
-        return abtestFlag;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++)
-            System.out.println(RandomUtils.nextInt(2));
-    }
+//    public static int getAbTestValueFromCookie(HttpServletRequest request, HttpServletResponse response, String site,
+//                                               String
+//                                                       cookieName, int percent, int seconds) {
+//        String abtestCookieFlag = CookieUtils.getCookieValueByName(request, cookieName);
+//        int abtestFlag;
+//        if (StringUtils.isNotBlank(abtestCookieFlag)) {
+//            abtestFlag = NumberUtils.toInt(abtestCookieFlag);
+//        } else {
+//            abtestFlag = RandomUtils.nextInt(percent);
+//            CookieUtils.addCookie(response, site, cookieName, String.valueOf(abtestFlag), seconds);
+//        }
+//        return abtestFlag;
+//    }
+//
+//    public static void main(String[] args) {
+//        for (int i = 0; i < 10; i++)
+//            System.out.println(RandomUtils.nextInt(2));
+//    }
 }
