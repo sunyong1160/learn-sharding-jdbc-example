@@ -21,6 +21,7 @@ public class NotifyThread {
         return new AsyncResult<>("回调成功！");
     }
 
+    @Async
     public Future<String> getInt(){
         try {
             Thread.sleep(6000);
